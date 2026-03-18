@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast | Modern Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i data-lucide="cloud-sun"></i>
+                <h1>SkyCast</h1>
+            </div>
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Enter city name..." autocomplete="off">
+                <button id="searchBtn">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+        </header>
+
+        <main id="weatherDisplay" class="hidden">
+            <div class="weather-card main-card">
+                <div class="location-info">
+                    <h2 id="cityName">City Name</h2>
+                    <p id="countryName">Country</p>
+                    <p id="dateTime">Wednesday, 18 March</p>
+                </div>
+                <div class="current-weather">
+                    <div class="temp-container">
+                        <span id="temperature">20</span><span class="unit">°C</span>
+                    </div>
+                    <div class="condition-info">
+                        <span id="weatherIconContainer">
+                            <i data-lucide="sun" class="large-icon"></i>
+                        </span>
+                        <p id="weatherDesc">Sunny</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-card">
+                    <i data-lucide="droplets"></i>
+                    <div class="detail-info">
+                        <p class="label">Humidity</p>
+                        <p id="humidity">45%</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i data-lucide="wind"></i>
+                    <div class="detail-info">
+                        <p class="label">Wind Speed</p>
+                        <p id="windSpeed">12 km/h</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i data-lucide="thermometer"></i>
+                    <div class="detail-info">
+                        <p class="label">Feels Like</p>
+                        <p id="feelsLike">22°C</p>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <i data-lucide="eye"></i>
+                    <div class="detail-info">
+                        <p class="label">Visibility</p>
+                        <p id="visibility">10 km</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecast-container">
+                <h3>7-Day Forecast</h3>
+                <div class="forecast-grid" id="forecastGrid">
+                    <!-- Forecast items will be injected here -->
+                </div>
+            </div>
+        </main>
+
+        <div id="welcomeScreen" class="welcome-screen">
+            <div class="welcome-content">
+                <i data-lucide="cloud-lightning" class="welcome-icon"></i>
+                <h2>Ready to check the weather?</h2>
+                <p>Type a city name above to get started.</p>
+            </div>
+        </div>
+
+        <div id="errorState" class="error-state hidden">
+            <i data-lucide="alert-circle"></i>
+            <p id="errorMessage">Couldn't find that location. Try again!</p>
+        </div>
+
+        <div id="loadingState" class="loading-state hidden">
+            <div class="loader"></div>
+            <p>Fetching weather data...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Powered by Open-Meteo & OpenStreetMap</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
